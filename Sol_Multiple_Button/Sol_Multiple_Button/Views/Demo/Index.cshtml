@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<form id="frmMain" method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <input id="btnSubmit1" type="button" name="btnSubmit1" value="Submit 1" class="btn btn-primary form-control" onclick="onSubmit1()" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <input id="btnSubmit2" type="button" name="btnSubmit2" value="Submit 2" class="btn btn-primary form-control" onclick="onSubmit2()" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+
+                <h2>@ViewBag.Submit1Status</h2>
+                <br />
+                <h2>@ViewBag.Submit2Status</h2>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+
+    <script type="text/javascript" lang="javascript">
+
+    function onSubmit1() {
+        $("#frmMain").attr("action", '@Url.Action("OnSubmit1", "Demo")');
+        $("#frmMain").submit();
+
+        console.log("onSubmit1");
+    };
+
+     function onSubmit2() {
+        $("#frmMain").attr("action", '@Url.Action("OnSubmit2", "Demo")');
+        $("#frmMain").submit();
+
+        console.log("onSubmit2");
+    };
+    </script>
+
+}
